@@ -4,7 +4,7 @@ set -x # debug
 
 apt update
 apt install -y --no-install-recommends autoconf automake build-essential gettext gcc libtool make \
-libglib2.0-dev libhttp-parser-dev libotr5-dev libpurple-dev libgnutls28-dev \
+libglib2.0-dev libhttp-parser-dev libotr5-dev libgnutls28-dev \
 libjson-glib-dev libpng-dev libolm-dev libprotobuf-c-dev protobuf-c-compiler \
 libgcrypt20-dev libmarkdown2-dev libpurple-dev libsqlite3-dev libwebp-dev libtool-bin \
 software-properties-common cmake
@@ -17,13 +17,13 @@ curl -LO# https://github.com/bitlbee/bitlbee-facebook/archive/v1.2.2.tar.gz &
 #git clone https://alexschroeder.ch/cgit/bitlbee-mastodon &
 #git clone https://github.com/EionRobb/purple-rocketchat.git &
 #curl -LO# https://github.com/sm00th/bitlbee-discord/archive/0.4.3.tar.gz &
-git clone https://github.com/dylex/slack-libpurple.git &
+#git clone https://github.com/dylex/slack-libpurple.git &
 #git clone https://github.com/jgeboski/bitlbee-steam.git &
 #git clone https://github.com/matrix-org/purple-matrix.git &
 #git clone https://github.com/EionRobb/purple-mattermost.git &
 #git clone https://github.com/EionRobb/purple-instagram.git &
 git clone https://github.com/EionRobb/purple-teams &
-git clone --recurse-submodules https://github.com/hoehermann/purple-signald.git purple-signald &
+#git clone --recurse-submodules https://github.com/hoehermann/purple-signald.git purple-signald &
 
 wait
 
@@ -41,13 +41,13 @@ cd purple-teams
 make
 make install
 
-# signal
-cd
-mkdir -p purple-signald/build
-cd purple-signald/build
-cmake ..
-make
-make install
+## signal
+#cd
+#mkdir -p purple-signald/build
+#cd purple-signald/build
+#cmake ..
+#make
+#make install
 
 # skypeweb
 #cd
@@ -99,10 +99,10 @@ make install
 #make
 #make install
 
-# slack-libpurple
-cd
-cd slack-libpurple
-make install
+## slack-libpurple
+#cd
+#cd slack-libpurple
+#make install
 
 # bitlbee-steam
 #cd
