@@ -1,11 +1,25 @@
 version: "2.0"
 
 services:
+  znc:
+    image: lscr.io/linuxserver/znc:latest
+    container_name: znc
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC
+    volumes:
+      - /path/to/data:/config
+    ports:
+      - 6501:6501
+    restart: unless-stopped
+    depends_on:
+      - bitlbee
   bitlbee:
     build: .
     image: mbologna/docker-bitlbee
     container_name: bitlbee
-    restart: always
+    restart: unless-stopped
     ports:
       - "16667:6667"
     networks:
@@ -13,23 +27,10 @@ services:
     volumes:
       - ./etc/bitlbee:/usr/local/etc/bitlbee
       - bitlbee_data:/var/lib/bitlbee
-  stunnel:
-    image: dweomer/stunnel
-    container_name: bitlbee-stunnel
-    restart: always
-    networks:
-      - bitlbee
-    ports:
-      - "16697:6697"
-    environment:
-      - STUNNEL_SERVICE=bitlbee-stunnel
-      - STUNNEL_ACCEPT=6697
-      - STUNNEL_CONNECT=bitlbee:6667
-    depends_on:
-      - bitlbee
 
 volumes:
   bitlbee_data:
 
 networks:
   bitlbee:
+
