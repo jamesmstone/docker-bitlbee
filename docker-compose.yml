@@ -12,6 +12,8 @@ services:
       - znc_data:/config
     ports:
       - 6501:6501
+    networks:
+      - bitlbee
     restart: unless-stopped
     depends_on:
       - bitlbee
