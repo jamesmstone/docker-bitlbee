@@ -9,7 +9,7 @@ services:
       - PGID=1000
       - TZ=Etc/UTC
     volumes:
-      - /path/to/data:/config
+      - znc_data:/config
     ports:
       - 6501:6501
     restart: unless-stopped
@@ -30,6 +30,7 @@ services:
 
 volumes:
   bitlbee_data:
+  znc_data:
 
 networks:
   bitlbee:
