@@ -7,7 +7,7 @@ apt install -y --no-install-recommends autoconf automake build-essential gettext
 libglib2.0-dev libhttp-parser-dev libotr5-dev libgnutls28-dev \
 libjson-glib-dev libpng-dev libolm-dev libprotobuf-c-dev protobuf-c-compiler \
 libgcrypt20-dev libmarkdown2-dev libpurple-dev libsqlite3-dev libwebp-dev libtool-bin \
-software-properties-common cmake
+software-properties-common
 
 cd
 curl -LO# https://get.bitlbee.org/src/bitlbee-$BITLBEE_VERSION.tar.gz &
@@ -36,10 +36,10 @@ make install
 make install-dev
 
 # ms teams
-cd
-cd purple-teams
-make
-make install
+#cd
+#cd purple-teams
+#make
+#make install
 
 ## signal
 #cd
